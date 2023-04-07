@@ -2,16 +2,17 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Agent : MonoBehaviour
 {
     public Rigidbody2D rb2d;
-    public PlayerInput playerInput;
+    [FormerlySerializedAs("playerInput")] public PlayerInput agentInput;
     public AgentAnimation animationManager;
     public AgentRenderer agentRenderer;
     private void Awake()
     {
-        playerInput = GetComponentInParent<PlayerInput>();
+        agentInput = GetComponentInParent<PlayerInput>();
         rb2d = GetComponent<Rigidbody2D>();
         animationManager = GetComponentInChildren<AgentAnimation>();
         agentRenderer = GetComponentInChildren<AgentRenderer>();
@@ -19,8 +20,8 @@ public class Agent : MonoBehaviour
 
     private void Start()
     {
-        playerInput.OnMovement += HandleMovement;
-        playerInput.OnMovement += agentRenderer.FaceDirection;
+        agentInput.OnMovement += HandleMovement;
+        agentInput.OnMovement += agentRenderer.FaceDirection;
     }
 
     private void HandleMovement(Vector2 input)

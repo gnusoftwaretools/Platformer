@@ -43,15 +43,18 @@
   <ItemGroup>
      <Compile Include="Assets\_Scripts\PlayerInput.cs" />
      <Compile Include="Assets\_Scripts\Agent.cs" />
-     <Compile Include="Assets\_Scripts\AgentAnimation.cs" />
      <Compile Include="Assets\_Scripts\AgentRenderer.cs" />
+     <Compile Include="Assets\_Scripts\AgentAnimation.cs" />
+     <Compile Include="Assets\_Scripts\States\State.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\_Assets\_Sounds\music" />
      <Folder Include="Assets\_Assets\_Sounds\sound" />
+     <Folder Include="Assets\_Materials" />
      <Folder Include="Assets\_Assets" />
      <Folder Include="Assets\_Assets\_Sprites\monsters" />
      <Folder Include="Assets\_Assets\_Sprites" />
      <Folder Include="Assets\Tiles\Palettes" />
+     <Folder Include="Assets\_Materials\Physics" />
      <Folder Include="Assets\Animations" />
      <Folder Include="Assets\_Scripts" />
      <Folder Include="Assets\_Assets\_Sprites\HUD" />
@@ -68,6 +71,7 @@
      <Folder Include="Assets\Animations\PlayerAnimations" />
      <Folder Include="Assets\_Assets\_Sprites\Weapons" />
      <Folder Include="Assets\_Assets\_Sprites\background-elements" />
+     <Folder Include="Assets\_Scripts\States" />
      <Folder Include="Assets\Tiles\Map" />
      <Folder Include="Assets\_Assets\_Sprites\FX\particles" />
      <Folder Include="Assets\_Prefabs" />
