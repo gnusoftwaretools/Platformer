@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using _Scripts.States;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -42,5 +43,10 @@ public class Agent : MonoBehaviour
             }
             rb2d.velocity = new Vector2(0, rb2d.velocity.y);
         }
+    }
+
+    internal void TransitionToState(State desiredState, State callingState)
+    {
+        throw new NotImplementedException();
     }
 }

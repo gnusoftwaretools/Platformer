@@ -46,6 +46,9 @@
      <Compile Include="Assets\_Scripts\AgentRenderer.cs" />
      <Compile Include="Assets\_Scripts\AgentAnimation.cs" />
      <Compile Include="Assets\_Scripts\States\State.cs" />
+     <Compile Include="Assets\_Scripts\States\IdleState.cs" />
+     <Compile Include="Assets\_Scripts\States\MovementState.cs" />
+     <Compile Include="Assets\_Scripts\States\MovementData.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\_Assets\_Sounds\music" />
      <Folder Include="Assets\_Assets\_Sounds\sound" />
