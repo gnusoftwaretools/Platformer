@@ -49,6 +49,7 @@
      <Compile Include="Assets\_Scripts\States\IdleState.cs" />
      <Compile Include="Assets\_Scripts\States\MovementState.cs" />
      <Compile Include="Assets\_Scripts\States\MovementData.cs" />
+     <Compile Include="Assets\_Scripts\GroundDetector.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\_Assets\_Sounds\music" />
      <Folder Include="Assets\_Assets\_Sounds\sound" />
