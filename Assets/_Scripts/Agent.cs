@@ -11,42 +11,65 @@ public class Agent : MonoBehaviour
     [FormerlySerializedAs("playerInput")] public PlayerInput agentInput;
     public AgentAnimation animationManager;
     public AgentRenderer agentRenderer;
+
+    public State currentState = null, previousState = null;
+    public State IdleState;
+
+    [Header("State debugging:")]
+    public string stateName = "";
+    
+    
     private void Awake()
     {
         agentInput = GetComponentInParent<PlayerInput>();
         rb2d = GetComponent<Rigidbody2D>();
         animationManager = GetComponentInChildren<AgentAnimation>();
         agentRenderer = GetComponentInChildren<AgentRenderer>();
+        State[] states = GetComponentsInChildren<State>();
+
+        foreach (var state in states)
+        {
+            state.InitializeState(this);
+        }
     }
 
     private void Start()
     {
-        agentInput.OnMovement += HandleMovement;
         agentInput.OnMovement += agentRenderer.FaceDirection;
+        TransitionToState(IdleState);
     }
 
-    private void HandleMovement(Vector2 input)
+    internal void TransitionToState(State desiredState)
     {
-        if (Mathf.Abs(input.x) > 0)
+        if (desiredState == null)
+            return;
+        if (currentState != null)
         {
-            if (Mathf.Abs(rb2d.velocity.x) < 0.01f)
-            {
-                animationManager.PlayAnimation(AnimationType.run);
-            }
-            rb2d.velocity = new Vector2(input.x * 5, rb2d.velocity.y);
+            currentState.Exit();
         }
-        else
+
+        previousState = currentState;
+        currentState = desiredState;
+        currentState.Enter();
+
+        DisplayState();
+    }
+
+    private void DisplayState()
+    {
+        if (previousState == null || previousState.GetType() != currentState.GetType())
         {
-            if (Mathf.Abs(rb2d.velocity.x) > 0)
-            {
-                animationManager.PlayAnimation(AnimationType.idle);
-            }
-            rb2d.velocity = new Vector2(0, rb2d.velocity.y);
+            stateName = currentState.GetType().ToString();
         }
     }
 
-    internal void TransitionToState(State desiredState, State callingState)
+    private void Update()
     {
-        throw new NotImplementedException();
+        currentState.StateUpdate();
+    }
+
+    private void FixedUpdate()
+    {
+        currentState.StateFixedUpdate();
     }
 }

@@ -14,7 +14,7 @@ namespace _Scripts.States
         {
             if (Mathf.Abs(input.x) > 0)
             {
-                agent.TransitionToState(MoveState, this);
+                agent.TransitionToState(MoveState);
             }
         }
     }
