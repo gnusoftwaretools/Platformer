@@ -26,6 +26,8 @@ public class MovementState : State
 
     public override void StateUpdate()
     {
+        if (TestFallTransition())
+            return;
         base.StateUpdate();
         CalculateVelocity();
         SetPlayerVelocity();

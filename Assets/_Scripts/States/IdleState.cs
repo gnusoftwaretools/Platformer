@@ -8,6 +8,10 @@ namespace _Scripts.States
         protected override void EnterState()
         {
             agent.animationManager.PlayAnimation(AnimationType.idle);
+            if (agent.groundDetector.isGrounded)
+            {
+                agent.rb2d.velocity = Vector2.zero;
+            }
         }
 
         protected override void HandleMovement(Vector2 input)
