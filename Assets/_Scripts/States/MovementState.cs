@@ -35,20 +35,20 @@ public class MovementState : State
         }
     }
 
-    private void SetPlayerVelocity()
+    protected void SetPlayerVelocity()
     {
         agent.rb2d.velocity = movementData.currentVelocity;
     }
 
-    private void CalculateVelocity()
+    protected void CalculateVelocity()
     {
         CalculateSpeed(agent.agentInput.MovementVector, movementData);
         CalculateHorizontalDirection(movementData);
-        movementData.currentVelocity =Vector3.right * movementData.horizontalMovementDirection * movementData.currentSpeed;
+        movementData.currentVelocity =Vector3.right * (movementData.horizontalMovementDirection * movementData.currentSpeed);
         movementData.currentVelocity.y = agent.rb2d.velocity.y;
     }
 
-    private void CalculateHorizontalDirection(MovementData movementData)
+    protected void CalculateHorizontalDirection(MovementData movementData)
     {
         if (agent.agentInput.MovementVector.x > 0)
         {
@@ -60,7 +60,7 @@ public class MovementState : State
         }
     }
 
-    private void CalculateSpeed(Vector2 movementVector, MovementData movementData1)
+    protected void CalculateSpeed(Vector2 movementVector, MovementData movementData1)
     {
         if (Mathf.Abs(movementVector.x) > 0)
         {
