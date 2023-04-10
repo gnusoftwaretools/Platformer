@@ -7,6 +7,8 @@ using UnityEngine.Serialization;
 
 public class Agent : MonoBehaviour
 {
+    public AgentDataSO agentData;
+    
     public Rigidbody2D rb2d;
     [FormerlySerializedAs("playerInput")] public PlayerInput agentInput;
     public AgentAnimation animationManager;

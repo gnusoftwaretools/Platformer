@@ -52,6 +52,7 @@
      <Compile Include="Assets\_Scripts\GroundDetector.cs" />
      <Compile Include="Assets\_Scripts\States\MovementState.cs" />
      <Compile Include="Assets\_Scripts\States\IdleState.cs" />
+     <Compile Include="Assets\_Scripts\Data\AgentDataSO.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\_Assets\_Sounds\music" />
      <Folder Include="Assets\_Assets\_Sounds\sound" />
@@ -70,6 +71,7 @@
      <Folder Include="Assets\_Assets\_Fonts" />
      <Folder Include="Assets\_Assets\_Sprites\Items" />
      <None Include="Assets\_Assets\_Fonts\homespun.txt" />
+     <Folder Include="Assets\_Scripts\Data" />
      <Folder Include="Assets\_Assets\_Sounds" />
      <Folder Include="Assets\Tiles\Palettes\Palette" />
      <Folder Include="Assets\Resources" />
